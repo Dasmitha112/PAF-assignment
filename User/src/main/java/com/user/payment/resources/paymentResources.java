@@ -12,10 +12,12 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 
 import com.user.payment.model.payment;
 import com.user.payment.repository.paymentRepository;
+import com.user.standardresponse.StandardResponse;
 
 
 //Resources
@@ -24,6 +26,7 @@ import com.user.payment.repository.paymentRepository;
 public class paymentResources {
 
 	paymentRepository repo = new paymentRepository();
+	StandardResponse rsp = new StandardResponse();
 	
 	//get all payments
 	@GET	
@@ -55,30 +58,36 @@ public class paymentResources {
 	@PUT
 	@Path("payment")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public payment updatePayment(payment p1) {
+	public Response updatePayment(payment p1) {
 		System.out.println(p1);
 		if(repo.getPayment(p1.getId()).getId() == 0) {
+			rsp.setSucess(false);
+			rsp.setMessage("Payment ID not found in the database!");
 			System.out.println("Payment ID not found in the database!");
+			
 		} else {
+			System.out.println("Payment updated!");
 			repo.update(p1);
+			rsp.setSucess(true);
+			rsp.setMessage("Payment successfully updated!");
 		}
-		return p1;
+		return Response.ok().entity(rsp).build();
 		
 	}
 	
 	//delete payment
 	@DELETE
 	@Path("payment/{id}")
-	public payment deletePayment(@PathParam("id") int id) {
+	public Response deletePayment(@PathParam("id") int id) {
 		payment p = repo.getPayment(id);
 		
-		if(p.getId() != -1) {
+		if(p.getId() != 0) {
 			repo.delete(id);
 		}
 		else {
 			System.out.println("Payment ID not found in the database!");
 		}
-		return p;
+		return Response.ok().entity(rsp).build();
 		
 	}
 }

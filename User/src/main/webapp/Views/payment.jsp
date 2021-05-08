@@ -30,53 +30,77 @@
 
 		<div class="card-body">
 			<form class="m-3">
-			
+
 				<!-- <div class="form-group">
 					<label for="exampleInputEmail1">Payment ID</label> 
 					<input type="text" id="paymentId" class="form-control"
 						aria-describedby="emailHelp" placeholder="Enter payment ID">
 
 				</div> -->
-			
+
 				<div class="form-group">
-					<label for="exampleInputEmail1">Account number</label> 
-					<input type="text" id="accountNumber" class="form-control"
+					<label for="exampleInputEmail1">Account number</label> <input
+						type="text" id="accountNumber" class="form-control"
 						aria-describedby="emailHelp" placeholder="Enter account number">
 
 				</div>
 				<div class="form-group">
-					<label for="exampleInputPassword1">Amount</label> 
-					<input type="text" id="amount" class="form-control"
+					<label for="exampleInputPassword1">Amount</label> <input
+						type="text" id="amount" class="form-control"
 						aria-describedby="emailHelp" placeholder="Enter amount">
 				</div>
 
 				<div class="form-group">
-					<label for="exampleInputPassword1">Type</label> 
-					<input type="text" id="type" class="form-control" 
-					aria-describedby="emailHelp" placeholder="Enter type">
+					<label for="exampleInputPassword1">Type</label> <input type="text"
+						id="type" class="form-control" aria-describedby="emailHelp"
+						placeholder="Enter type">
 				</div>
 				<div class="form-group">
-					<label for="exampleInputEmail1">Date</label> 
-					<input type="text" id="date" class="form-control" 
-					aria-describedby="emailHelp" placeholder="Enter date">
+					<label for="exampleInputEmail1">Date</label> <input type="text"
+						id="date" class="form-control" aria-describedby="emailHelp"
+						placeholder="Enter date">
 
 				</div>
 				<div class="form-group">
-					<label for="exampleInputEmail1">Description</label> 
-					<input type="text" id="description" class="form-control"
-					aria-describedby="emailHelp" placeholder="Enter description">
+					<label for="exampleInputEmail1">Description</label> <input
+						type="text" id="description" class="form-control"
+						aria-describedby="emailHelp" placeholder="Enter description">
 
 				</div>
 				<div class="form-group">
-					<label for="exampleInputEmail1">Buyer name</label> 
-					<input type="text" id="buyerName" class="form-control"
-					aria-describedby="emailHelp" placeholder="Enter buyer's name">
+					<label for="exampleInputEmail1">Buyer name</label> <input
+						type="text" id="buyerName" class="form-control"
+						aria-describedby="emailHelp" placeholder="Enter buyer's name">
 
 				</div>
 
 				<button type="button" id="btnsavePayment" class="btn btn-primary">Submit</button>
-				
+				<button type="button" id="btnupdate" class="btn btn-warning">Update</button>
+
 			</form>
+
+			<div>
+				<h2>Bordered Table</h2>
+				<table class="table table-hover">
+					<thead>
+						<tr class="bg-info text-white">
+							<th>PaymentID</th>
+							<th>Account Number</th>
+							<th>Amount</th>
+							<th>Type</th>
+							<th>Date</th>
+							<th>Description</th>
+							<th>Buyer Name</th>
+
+						</tr>
+					</thead>
+					
+					<tbody id="proBody">
+
+					</tbody>
+					
+				</table>
+			</div>
 
 		</div>
 	</div>
@@ -84,6 +108,6 @@
 	<script type="text/javascript" src="../jquery/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript" src="../jquery/jquery.cookie.js"></script>
 	<script type="text/javascript" src="../jquery/main.js"></script>
-	
+
 </body>
 </html>

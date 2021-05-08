@@ -30,22 +30,25 @@ $( document ).ready(() => {
 						$('#proBody').append(row);
 						
 						$("#proBody tr").unbind("click");
-						 $("#proBody tr").click(function () {
-							    let code = $($(this).children().get(0)).text();
-							    let name = $($(this).children().get(1)).text();
-							    let type = $($(this).children().get(2)).text();
-							    let price = $($(this).children().get(3)).text();
-							    let desc = $($(this).children().get(4)).text();
-							    let qty = $($(this).children().get(5)).text();
+						
+						$("#proBody tr").click(function () {
+							    let cid = $($(this).children().get(0)).text();
+							    let caccountNo = $($(this).children().get(1)).text();
+							    let camount = $($(this).children().get(2)).text();
+							    let ctype = $($(this).children().get(3)).text();
+							    let cdate = $($(this).children().get(4)).text();
+							    let cdescription = $($(this).children().get(5)).text();
+								let cbuyerName = $($(this).children().get(5)).text();
 							    
-							    $('#id').val(code);
-								$('#name').val(name);
-								$('#type').val(type);
-								$('#price').val(price);
-								$('#description').val(desc);
-								$('#quantity').val(qty);
+							    $('#id').val(cid);
+								$('#accountNo').val(caccountNo);
+								$('#amount').val(camount);
+								$('#type').val(ctype);
+								$('#date').val(cdate);
+								$('#description').val(cdescription);
+								$('#buyerName').val(cbuyerName);
 							    
-							  });
+						});
 					}
 				},
 				error: (err) => {
@@ -57,6 +60,7 @@ $( document ).ready(() => {
 		}
 		});
 
+
 function deleteRow(x) {
 	let id = $($(x).closest("tr").children().get(0)).text();
 	
@@ -66,7 +70,7 @@ function deleteRow(x) {
 	if (token !== undefined && uname !== undefined) {
 		$.ajax({
 			type: 'delete',
-			url: 'http://localhost:8081/User/webapi/products/product/'+id,
+			url: 'http://localhost:8089/User/webapi/payments/payment/'+id,
 			headers: {
 				'Authcode': token,
 				'uname': uname
