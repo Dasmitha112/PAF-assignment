@@ -100,18 +100,17 @@ public class paymentRepository {
 	//insert payment method
 	public void create(payment p1) {	
 		
-		String sql = "INSERT INTO `payment` VALUES (?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO `payment` (accountNo, amount, type, date, description, buyerName) VALUES (?,?,?,?,?,?)";
 		
 		try {
 			PreparedStatement st = con.prepareStatement(sql);
 			
-			st.setInt(1, p1.getId());
-			st.setInt(2, p1.getAccountNo());
-			st.setFloat(3, p1.getAmount());
-			st.setString(4, p1.getType());
-			st.setString(5, p1.getDate());
-			st.setString(6, p1.getDescription());
-			st.setString(7, p1.getBuyerName());
+			st.setInt(1, p1.getAccountNo());
+			st.setFloat(2, p1.getAmount());
+			st.setString(3, p1.getType());
+			st.setString(4, p1.getDate());
+			st.setString(5, p1.getDescription());
+			st.setString(6, p1.getBuyerName());
 			
 			st.executeUpdate();
 			

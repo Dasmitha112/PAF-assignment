@@ -1,12 +1,12 @@
 $( document ).ready(() => {
-		 
+
 		let token = $.cookie('token');
 		let uname = $.cookie('uname');
 
 		if (token !== undefined && uname !== undefined) {
 			$.ajax({
 				type: 'get',
-				url: 'http://localhost:8089/User/webapi/payments/payment',
+				url: 'http://localhost:8089/User/webapi/payments',
 				headers: {
 					'Authcode': token,
 					'uname': uname
@@ -38,7 +38,7 @@ $( document ).ready(() => {
 							    let ctype = $($(this).children().get(3)).text();
 							    let cdate = $($(this).children().get(4)).text();
 							    let cdescription = $($(this).children().get(5)).text();
-								let cbuyerName = $($(this).children().get(5)).text();
+								let cbuyerName = $($(this).children().get(6)).text();
 							    
 							    $('#id').val(cid);
 								$('#accountNo').val(caccountNo);

@@ -84,7 +84,7 @@ $('#btnsave').click(() => {
 $('#btnsavePayment').click(() => {
 
 	//let cId = $('#paymentId').val();
-	let cAccountNumber = $('#accountNumber').val();
+	let cAccountNumber = $('#accountNo').val();
 	let cAmount = $('#amount').val();
 	let cType = $('#type').val();
 	let cDate = $('#date').val();
@@ -113,7 +113,8 @@ $('#btnsavePayment').click(() => {
 			}),
 			contentType: 'application/json',
 			success: (data) => {
-				alert(data);
+				alert(data.message);
+				
 			},
 			error: (err) => {
 				alert(err);
@@ -128,16 +129,14 @@ $('#btnsavePayment').click(() => {
 
 $('#btnupdate').click(()=>{
 	
-	let cId = $('#paymentId').val();
-	let cAccountNo = $('#accountNumber').val();
+	let cId = $('#id').val();
+	let cAccountNo = $('#accountNo').val();
 	let cAmount = $('#amount').val();
 	let cType = $('#type').val();
 	let cDate = $('#date').val();
 	let cDescription = $('#description').val();
 	let cBuyerName = $('#buyerName').val();
 	
-	console.log(cId+''+cAccountNumber+''+cAmount+''+cType+''+cDescription+''+cBuyerName);		
-
 	
 	let token = $.cookie('token');
 	let uname = $.cookie('uname');
@@ -162,6 +161,7 @@ $('#btnupdate').click(()=>{
 			contentType: 'application/json',
 			success: (data) => {
 				alert(data.message);
+				location.reload();
 			},
 			error: (err) => {
 				alert(err);

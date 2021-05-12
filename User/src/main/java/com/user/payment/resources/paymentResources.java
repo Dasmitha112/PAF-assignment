@@ -47,11 +47,13 @@ public class paymentResources {
 	@POST
 	@Path("payment")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public payment createPayment(payment p1) {
+	public Response createPayment(payment p1) {
 		System.out.println(p1);
 		repo.create(p1);
+		rsp.setSucess(true);
+		rsp.setMessage("Payment successfully inserted!");
 		
-		return p1;
+		return Response.ok().entity(rsp).build();
 	}
 	
 	//update payment
@@ -82,9 +84,14 @@ public class paymentResources {
 		payment p = repo.getPayment(id);
 		
 		if(p.getId() != 0) {
+			System.out.println("Payment deleted!");
 			repo.delete(id);
+			rsp.setSucess(true);
+			rsp.setMessage("Payment successfully deleted!");
 		}
 		else {
+			rsp.setSucess(false);
+			rsp.setMessage("Payment ID not found in the database!");
 			System.out.println("Payment ID not found in the database!");
 		}
 		return Response.ok().entity(rsp).build();

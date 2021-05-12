@@ -26,21 +26,23 @@
 </head>
 <body>
 
-	<div class="card" style="width: 90%; margin: 20px;">
+	<div class="card" style="width: 90%; margin: 70px;">
 
 		<div class="card-body">
 			<form class="m-3">
 
-				<!-- <div class="form-group">
-					<label for="exampleInputEmail1">Payment ID</label> 
-					<input type="text" id="paymentId" class="form-control"
-						aria-describedby="emailHelp" placeholder="Enter payment ID">
+				<h1 align="center">Payment Service</h1>
+				<br><br>
+				
+				<div class="form-group">
+					<label for="exampleInputEmail1">Payment ID</label> <input
+						type="text" id="id" class="form-control"
+						aria-describedby="emailHelp" placeholder="Payment ID" maxlength="10" readonly>
 
-				</div> -->
-
+				</div>
 				<div class="form-group">
 					<label for="exampleInputEmail1">Account number</label> <input
-						type="text" id="accountNumber" class="form-control"
+						type="text" id="accountNo" class="form-control"
 						aria-describedby="emailHelp" placeholder="Enter account number">
 
 				</div>
@@ -56,7 +58,7 @@
 						placeholder="Enter type">
 				</div>
 				<div class="form-group">
-					<label for="exampleInputEmail1">Date</label> <input type="text"
+					<label for="exampleInputEmail1">Date</label> <input type="date"
 						id="date" class="form-control" aria-describedby="emailHelp"
 						placeholder="Enter date">
 
@@ -72,15 +74,15 @@
 						type="text" id="buyerName" class="form-control"
 						aria-describedby="emailHelp" placeholder="Enter buyer's name">
 
-				</div>
-
+				</div>		
+				<br>			
 				<button type="button" id="btnsavePayment" class="btn btn-primary">Submit</button>
 				<button type="button" id="btnupdate" class="btn btn-warning">Update</button>
-
+				<br><br><br>
 			</form>
 
 			<div>
-				<h2>Bordered Table</h2>
+				<h3>Payment Information</h3>
 				<table class="table table-hover">
 					<thead>
 						<tr class="bg-info text-white">
@@ -91,6 +93,7 @@
 							<th>Date</th>
 							<th>Description</th>
 							<th>Buyer Name</th>
+							<th>Action</th>
 
 						</tr>
 					</thead>
@@ -108,6 +111,7 @@
 	<script type="text/javascript" src="../jquery/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript" src="../jquery/jquery.cookie.js"></script>
 	<script type="text/javascript" src="../jquery/main.js"></script>
+	<script type="text/javascript" src = "../jquery/table.js"> </script>
 
 </body>
 </html>
